@@ -1,14 +1,10 @@
-package jogodavelha.Frontend;
+package jogodavelha.frontend;
 
 import javax.swing.*;
 
 public class Inicio {
-    private JPanel panelInicial;
-    private JLabel LabelTitulo;
-    private JButton buttonInicioAI;
-    private JButton buttonInicio2Player;
-
-    private void createUIComponents() {
-        // TODO: place custom component creation code here
-    }
+    private JPanel panel1;
+    private JLabel tituloLabel;
+    private JButton iniciarOJogoVsButton;
+    private JButton iniciarOJogoVsButton1;
 }

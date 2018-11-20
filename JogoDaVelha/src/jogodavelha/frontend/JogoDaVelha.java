@@ -1,4 +1,4 @@
-package jogodavelha.Frontend;
+package jogodavelha.frontend;
 
 /**
  * Classe principal do Jogo
@@ -8,6 +8,6 @@ package jogodavelha.Frontend;
 public class JogoDaVelha {
 
     public static void main(String[] args) {
-        new Inicio();
+        //new Inicio();
     }
 }
