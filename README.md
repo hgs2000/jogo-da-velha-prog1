@@ -14,4 +14,4 @@ Para construir a solução, propõe-se como ponto de partida a implementação d
 (o diagrama está incompleto: métodos, parâmetros, adornos e tipos de retornos precisam ser especificados. Podem ser
 acrescentadas outras classes).
 
-![Diagrama de Classes](readmefiles/diagrama.png)
+![Diagrama de Classes](diagrama.png) 
