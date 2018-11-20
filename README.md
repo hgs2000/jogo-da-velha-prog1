@@ -63,5 +63,5 @@ bibliotecas públicas;
 * A implementação do plano de testes
 ___
 ### Biografia
-ASTAH. Astah Community. Astah - Software Design Tools for Agile Teams. Disponivel em: <http://astah.net/editions/uml-new>. Acesso em: outubro 2018
-HOW to Generate JAR File in Netbeans. Wikihow. Disponivel em: <http://www.wikihow.com/Generate-JAR-File-inNetbeans>. Acesso em: maio 2018.
+* ASTAH. Astah Community. Astah - Software Design Tools for Agile Teams. Disponivel em: <http://astah.net/editions/uml-new>. Acesso em: outubro 2018
+* HOW to Generate JAR File in Netbeans. Wikihow. Disponivel em: <http://www.wikihow.com/Generate-JAR-File-inNetbeans>. Acesso em: maio 2018.
