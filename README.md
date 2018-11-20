@@ -40,17 +40,17 @@ classes da camada de negócios. Utilizar a linguagem UML para desenhar o diagram
 software Astah UML, versão Student (ASTAH, 2018). O diagrama deve ser impresso e entregue no dia 23/11/2018,
 durante a aula;
 * (5,0 pts) Implementação do jogo funcional, atendendo a arquitetura em duas camadas. As classes da camada de
-negócio devem ser devidamente documentadas com o estilo javadoc;
+negócio devem ser devidamente documentadas com o estilo <span style="color:blue"> javadoc </span>;
 * (1,0 pt) Construção de um plano de testes para validar as classes da camada de negócios;
 * (2,0 pt) Implementação do plano de testes através do framework JUnit. Todos os métodos públicos (que não são
 getter e setter) devem possuir testes.
 
 As classes do projeto devem ser organizadas em pacotes conforme a arquitetura de duas camadas. O projeto deve conter
-apenas uma classe com o método main().
+apenas uma classe com o método <span style="color:blue"> main() </span>.
 
 O trabalho pode ser feito em dupla e deverá ser submetido no AVA, na pasta “Trabalho” até 23/11/2018. Após esta data,
 serão descontados 2 pontos para cada dia de atraso. O trabalho deve ser enviado somente por um dos membros da
-equipe. Utilizar a anotação @author na classe que contém o método main(), para informar os membros da equipe.
+equipe. Utilizar a anotação <span style="color:blue"> @author </span> na classe que contém o método <span style="color:blue"> main() </span>, para informar os membros da equipe.
 ___
 ### Material a ser submetido no AVA
 No AVA deverá ser submetido:
