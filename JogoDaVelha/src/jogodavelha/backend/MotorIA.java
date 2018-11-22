@@ -12,15 +12,14 @@ public class MotorIA {
     private int max = 0;
     private int mix = 0;
     private int nodeIndex = 0;
-    ArrayList<Node> nodex = new ArrayList();
+    ArrayList<Node> nodes = new ArrayList();
 
     /**
-     * 
+     *
      * @param table
      * @param finalNode
-     * @return 
+     * @return
      */
-    
     public Node DepthSearch(Peca table[][], Node finalNode) {
         Peca tabuleiro[][] = table;
         Node node = null;
@@ -29,9 +28,9 @@ public class MotorIA {
     }
 
     /**
-     * 
+     *
      * @param table
-     * @return 
+     * @return
      */
     public boolean verificaVelha(Peca table[][]) {
 
@@ -54,9 +53,9 @@ public class MotorIA {
     }
 
     /**
-     * 
+     *
      * @param table
-     * @return 
+     * @return
      */
     public boolean verificaVitoria(Peca table[][]) {
 
