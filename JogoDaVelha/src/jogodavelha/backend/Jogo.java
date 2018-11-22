@@ -2,8 +2,7 @@ package jogodavelha.backend;
 
 /**
  * Classe principal do backend do jogo
- *
- * @author vicbona (Victor Bona) e hstarosky (Henrique Starosky)
+ * @author vicbona (Victor Bona) & hstarosky (Henrique Starosky)
  */
 public class Jogo {
 
