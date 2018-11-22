@@ -65,8 +65,19 @@ public class Jogo {
         return vencedor;
     }
 
+    /**
+     * 
+     * @return 
+     */
     public boolean terminouJogo() {
-
+        for (Peca[] peca : tabuleiro) {
+            for (Peca p : peca) {
+                if (p == null) {
+                   return false;
+                }
+            }
+        }
+        // fazer
         return true;
     }
 
