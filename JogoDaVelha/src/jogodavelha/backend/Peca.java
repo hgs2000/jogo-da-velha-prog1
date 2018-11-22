@@ -2,7 +2,7 @@ package jogodavelha.backend;
 
 /**
  *
- * @author vicbona
+ * @author vicbona (Victor Bona) e hstarosky (Henrique Starosky)
  */
 public class Peca {
     
