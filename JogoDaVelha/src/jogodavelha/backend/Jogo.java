@@ -2,6 +2,7 @@ package jogodavelha.backend;
 
 /**
  * Classe principal do backend do jogo
+ *
  * @author vicbona (Victor Bona) e hstarosky (Henrique Starosky)
  */
 public class Jogo {
@@ -30,19 +31,17 @@ public class Jogo {
      * @return
      */
     public boolean temPeca(int linha, int coluna) {
-        boolean temPeca = false;
-        if (tabuleiro[linha][coluna] != null) {
-            temPeca = true;
-        }
-        return temPeca;
+        return (tabuleiro[linha][coluna] != null);
     }
 
     /**
      * O método colocarPeca() coloca uma peça no tabuleiro. Se já houver uma
-     * peça naquela posição, o método lança uma exceção(IllegalArgumentException).
+     * peça naquela posição, o método lança uma
+     * exceção(IllegalArgumentException).
+     *
      * @param peca
      * @param linha
-     * @param coluna 
+     * @param coluna
      */
     public void colocarPeca(Peca peca, int linha, int coluna) {
         if (tabuleiro[linha][coluna] != null) {
@@ -66,19 +65,75 @@ public class Jogo {
     }
 
     /**
-     * 
-     * @return 
+     * O método terminouJogo() retorna true se o jogo foi finalizado e não há
+     * mais chances de ninguém jogar qualquer peça; Sendo que as condições para
+     * que o método retorne true são: a vitoria de algum dos jogadores(dadas as
+     * condições verticais, horizontais e diagonais) ou quando o jogo der
+     * "velha" onde todas as casas do jogo estão ocupada mas sem nenhuma
+     * condição de vitoria.
+     *
+     * @return
      */
     public boolean terminouJogo() {
+
+        boolean terminou = false;
+        int contador = 0;
+
         for (Peca[] peca : tabuleiro) {
             for (Peca p : peca) {
-                if (p == null) {
-                   return false;
+                if (p != null) {
+                    contador++;
                 }
             }
         }
-        // fazer
-        return true;
+        //condição de velha
+        if (contador == 9) {
+            terminou = true;
+        }
+
+        //condições de vitoria
+        Peca x = new Peca();
+        x.setFace(Face.X);
+        Peca o = new Peca();
+        x.setFace(Face.O);
+        // condições horizontais
+        if ((tabuleiro[0][0] == x && tabuleiro[0][1] == x && tabuleiro[0][2] == x)
+                || (tabuleiro[0][0] == o && tabuleiro[0][1] == o && tabuleiro[0][2] == o)) {
+            terminou = true;
+        }
+        if ((tabuleiro[1][0] == x && tabuleiro[1][1] == x && tabuleiro[1][2] == x)
+                || (tabuleiro[1][0] == o && tabuleiro[1][1] == o && tabuleiro[1][2] == o)) {
+            terminou = true;
+        }
+        if ((tabuleiro[2][0] == x && tabuleiro[2][1] == x && tabuleiro[2][2] == x)
+                || (tabuleiro[2][0] == o && tabuleiro[2][1] == o && tabuleiro[2][2] == o)) {
+            terminou = true;
+        }
+
+        //condições verticais
+        if ((tabuleiro[0][0] == x && tabuleiro[1][0] == x && tabuleiro[2][0] == x)
+                || (tabuleiro[0][0] == o && tabuleiro[1][0] == o && tabuleiro[2][0] == o)) {
+            terminou = true;
+        }
+        if ((tabuleiro[0][1] == x && tabuleiro[1][1] == x && tabuleiro[2][1] == x)
+                || (tabuleiro[0][1] == o && tabuleiro[1][1] == o && tabuleiro[2][1] == o)) {
+            terminou = true;
+        }
+        if ((tabuleiro[0][2] == x && tabuleiro[1][2] == x && tabuleiro[2][2] == x)
+                || (tabuleiro[0][2] == o && tabuleiro[1][2] == o && tabuleiro[2][2] == o)) {
+            terminou = true;
+        }
+
+        //condições diagonais
+        if ((tabuleiro[0][0] == x && tabuleiro[1][1] == x && tabuleiro[2][2] == x)
+                || (tabuleiro[0][0] == o && tabuleiro[1][1] == o && tabuleiro[2][2] == o)) {
+            terminou = true;
+        }
+        if ((tabuleiro[0][2] == x && tabuleiro[1][1] == x && tabuleiro[2][0] == x)
+                || (tabuleiro[0][2] == o && tabuleiro[1][1] == o && tabuleiro[2][0] == o)) {
+            terminou = true;
+        }
+        return terminou;
     }
 
     /**
@@ -112,6 +167,7 @@ public class Jogo {
 
     /**
      * O método getTabuleiro() retorna o conteúdo do tabuleiro.
+     *
      * @return
      */
     public Peca[][] getTabuleiro() {

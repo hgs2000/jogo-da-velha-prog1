@@ -8,6 +8,13 @@ public class Peca {
     
     Face face;
 
+    public Peca(Face face) {
+        this.face = face;
+    }
+
+    public Peca() {
+    }
+    
     //Getters e Setters
     
     public Face getFace() {
