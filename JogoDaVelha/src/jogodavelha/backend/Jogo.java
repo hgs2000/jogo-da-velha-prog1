@@ -10,6 +10,9 @@ public class Jogo {
     private Jogador jogadores[] = new Jogador[2];
     private boolean ia = false;
 
+    /**
+     * 
+     */
     public Jogo() {
     }
 
