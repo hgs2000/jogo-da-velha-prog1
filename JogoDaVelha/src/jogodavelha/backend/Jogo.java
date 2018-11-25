@@ -21,10 +21,11 @@ public class Jogo {
     }
 
     /**
-     * 
+     * Método que faz a jogada dos jogadores de acordo com a vez
+     *
      * @param linha
      * @param coluna
-     * @return 
+     * @return
      */
     public boolean fazJogada(int linha, int coluna) {
         Jogador daVez = identificaQuemJoga();
@@ -195,12 +196,15 @@ public class Jogo {
     public Jogador identificaQuemJoga() {
         try {
             if (jogadores[0].isQuemJoga() == true) {
+                jogadores[0].setQuemJoga(false);
+                jogadores[1].setQuemJoga(true);
                 return jogadores[0];
             } else {
+                jogadores[0].setQuemJoga(true);
+                jogadores[1].setQuemJoga(false);
                 return jogadores[1];
             }
         } catch (Exception x) {
-
         }
         return null;
     }
