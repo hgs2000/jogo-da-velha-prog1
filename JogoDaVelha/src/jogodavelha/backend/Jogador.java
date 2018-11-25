@@ -8,7 +8,7 @@ public class Jogador {
 
     private String nome;
     private Face faceEscolhida;
-    private boolean quemJoga;
+    private boolean quemJoga = false;
 
     public Jogador(String nome, Face faceEscolhida) {
         this.nome = nome;
@@ -17,7 +17,8 @@ public class Jogador {
 
     /**
      * Getter de nome
-     * @return 
+     *
+     * @return
      */
     public String getNome() {
         return nome;
@@ -25,7 +26,8 @@ public class Jogador {
 
     /**
      * Setter de nome
-     * @param nome 
+     *
+     * @param nome
      */
     public void setNome(String nome) {
         this.nome = nome;
@@ -33,15 +35,17 @@ public class Jogador {
 
     /**
      * Getter de face
-     * @return 
+     *
+     * @return
      */
     public Face getFaceEscolhida() {
         return faceEscolhida;
     }
 
     /**
-     * Setter de faceEscolhida 
-     * @param faceEscolhida 
+     * Setter de faceEscolhida
+     *
+     * @param faceEscolhida
      */
     public void setFaceEscolhida(Face faceEscolhida) {
         this.faceEscolhida = faceEscolhida;
@@ -49,7 +53,8 @@ public class Jogador {
 
     /**
      * Getter de quemJoga
-     * @return 
+     *
+     * @return
      */
     public boolean isQuemJoga() {
         return quemJoga;
@@ -57,11 +62,11 @@ public class Jogador {
 
     /**
      * setter de quemJoga
-     * @param quemJoga 
+     *
+     * @param quemJoga
      */
     public void setQuemJoga(boolean quemJoga) {
         this.quemJoga = quemJoga;
     }
-    
 
 }

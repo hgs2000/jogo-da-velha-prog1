@@ -3,12 +3,13 @@ package jogodavelha.backend;
 import java.util.Random;
 
 /**
- * Classe principal do backend do jogo
+ * Classe principal do backend do jogo Para o funcionamento do jogo apenas se
+ * deve
  *
  * @author vicbona (Victor Bona) & hstarosky (Henrique Starosky)
  */
 public class Jogo {
-
+    
     private Peca tabuleiro[][] = new Peca[3][3];
     private Jogador jogadores[] = new Jogador[2];
     private boolean ia = false;
@@ -42,8 +43,11 @@ public class Jogo {
         }
         return terminouJogo();
     }
-
+    
     public void incluirJogador(Jogador jogador) {
+        if (jogador.getFaceEscolhida() == Face.X) {
+            jogador.setQuemJoga(true);
+        }
         if (jogadores[0] != null) {
             jogadores[0] = jogador;
         } else {
@@ -103,10 +107,10 @@ public class Jogo {
      * @return
      */
     public boolean terminouJogo() {
-
+        
         boolean terminou = false;
         int contador = 0;
-
+        
         for (Peca[] peca : tabuleiro) {
             for (Peca p : peca) {
                 if (p != null) {
@@ -219,7 +223,7 @@ public class Jogo {
         Jogador ia = new Jogador("Computador", (jogadores[0].getFaceEscolhida() == Face.X) ? Face.O : Face.X);
         incluirJogador(ia);
     }
-
+    
     public void fazJogadaIa() {
         Random rand = new Random();
         int linha = 0;
@@ -243,25 +247,25 @@ public class Jogo {
     public Peca[][] getTabuleiro() {
         return tabuleiro;
     }
-
+    
     public Jogador[] getJogadores() {
         return jogadores;
     }
-
+    
     public void setTabuleiro(Peca[][] tabuleiro) {
         this.tabuleiro = tabuleiro;
     }
-
+    
     public void setJogadores(Jogador[] jogadores) {
         this.jogadores = jogadores;
     }
-
+    
     public boolean isIa() {
         return ia;
     }
-
+    
     public void setIa(boolean ia) {
         this.ia = ia;
     }
-
+    
 }
