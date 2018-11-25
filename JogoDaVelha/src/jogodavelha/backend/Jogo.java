@@ -3,8 +3,11 @@ package jogodavelha.backend;
 import java.util.Random;
 
 /**
- * Classe principal do backend do jogo Para o funcionamento do jogo apenas se
- * deve
+ * Classe principal do backend do jogo. Para o funcionamento do jogo apenas se
+ * deve incluir os jogadores e definir se o adversario será ou não o computador,
+ * -> algumas regras a serem relevadas: o jogadores de face X sempre começa jogando
+ * -> o computador sempre seleciona a face contraria ao jogador humano
+ * -> as condições de vitoria são as mesmas do jogo da velha tradicional e são verificadas a cada jogada
  *
  * @author vicbona (Victor Bona) & hstarosky (Henrique Starosky)
  */
@@ -22,7 +25,8 @@ public class Jogo {
     }
 
     /**
-     * Método que faz a jogada dos jogadores de acordo com a vez
+     * Método que faz a jogada dos jogadores de acordo com a vez, o metodo verifica sempre se o jogo acabou
+     * retornando true caso o jogo tenha terminado
      *
      * @param linha
      * @param coluna
