@@ -1,7 +1,5 @@
 package jogodavelha.frontend;
 
-import jogodavelha.backend.*;
-
 /**
  * Classe principal do TelaJogo
  *
@@ -10,7 +8,6 @@ import jogodavelha.backend.*;
 public class JogoDaVelha {
 
     public static void main(String[] args) {
-
         MainMenu m = new MainMenu();
         m.setVisible(true);
     }

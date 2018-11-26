@@ -3,6 +3,8 @@ package jogodavelha.frontend;
 import jogodavelha.backend.*;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 //TODO adicionar as classes do backend afim de processar as jogadas.
 public class MainMenu extends JFrame {
@@ -20,19 +22,22 @@ public class MainMenu extends JFrame {
         add(menuPrincipal);
         setTitle("TelaJogo da Velha");
         setSize(640, 480);
-    }
-
-    private void enterGame(boolean cpu) {
-        if (cpu) {
-            //START GAME WITH CPU
-            //  Chamar a outra tela com parametro do PC
-            new SelecaoFace();
-            dispose();
-        } else {
-            //START GAME WITHOUT CPU
-            //  Chamar a outra tela com parametro do player
-            add(new SelecaoFace().getContentPane());
-            dispose();
-        }
+        iniciarJogoVSJogadorButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("Botão apertado: VS Jogador");
+                //TODO adicionar mudança de tela onClick
+                SelecaoFace sf = new SelecaoFace();
+                sf.setVisible(true);
+            }
+        });
+        iniciarJogoVSComputadorButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("Botão apertado: VS CPU");
+                //TODO adicionar mudança de tela onClick
+                dispose();
+            }
+        });
     }
 }

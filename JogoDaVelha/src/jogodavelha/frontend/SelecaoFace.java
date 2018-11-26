@@ -8,11 +8,10 @@ public class SelecaoFace extends JDialog {
     private JButton xButton;
     private JButton oButton;
 
-    public SelecaoFace() {
-        add(rootPane);
+    SelecaoFace() {
         setModal(true);
         setSize(250, 100);
-        setVisible(true);
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }
 
 }
