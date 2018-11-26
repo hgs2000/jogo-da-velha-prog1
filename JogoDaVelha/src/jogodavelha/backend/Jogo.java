@@ -12,11 +12,11 @@ import java.util.Random;
  * @author vicbona (Victor Bona) & hstarosky (Henrique Starosky)
  */
 public class Jogo {
-    
+
     private Peca tabuleiro[][] = new Peca[3][3];
     private Jogador jogadores[] = new Jogador[2];
     private boolean ia = false;
-    Face faceVitoriosa;
+    private Face faceVitoriosa;
 
     /**
      *
@@ -28,9 +28,9 @@ public class Jogo {
      * Método que faz a jogada dos jogadores de acordo com a vez, o metodo verifica sempre se o jogo acabou
      * retornando true caso o jogo tenha terminado
      *
-     * @param linha
-     * @param coluna
-     * @return
+     * @param linha  A linha escolhida pra jogada.
+     * @param coluna A coluna escolhida pra jogada
+     * @return boolean para saber se a jogada foi executada com sucesso.
      */
     public boolean fazJogada(int linha, int coluna) {
         Jogador daVez = identificaQuemJoga();
@@ -47,7 +47,7 @@ public class Jogo {
         }
         return terminouJogo();
     }
-    
+
     public void incluirJogador(Jogador jogador) {
         if (jogador.getFaceEscolhida() == Face.X) {
             jogador.setQuemJoga(true);
@@ -63,8 +63,8 @@ public class Jogo {
      * O método temPeca() avalia se há uma peça no tabuleiro, conforme
      * coordenadas do tabuleiro informadas.
      *
-     * @param linha
-     * @param coluna
+     * @param linha  linha destino
+     * @param coluna coluna destino
      * @return
      */
     public boolean temPeca(int linha, int coluna) {
@@ -111,10 +111,10 @@ public class Jogo {
      * @return
      */
     public boolean terminouJogo() {
-        
+
         boolean terminou = false;
         int contador = 0;
-        
+
         for (Peca[] peca : tabuleiro) {
             for (Peca p : peca) {
                 if (p != null) {
@@ -218,6 +218,14 @@ public class Jogo {
     }
 
     /**
+     * Retorna a face que venceu a partida
+     * @return face vencedora
+     */
+    public Face getFaceVitoriosa() {
+        return faceVitoriosa;
+    }
+
+    /**
      * o método hasIa tem como finalidade definir as configurações para que o
      * jogo opere no modo jogador vs maquina habilitando a IA do jogo e
      * definindo seus parametros
@@ -227,7 +235,7 @@ public class Jogo {
         Jogador ia = new Jogador("Computador", (jogadores[0].getFaceEscolhida() == Face.X) ? Face.O : Face.X);
         incluirJogador(ia);
     }
-    
+
     public void fazJogadaIa() {
         Random rand = new Random();
         int linha = 0;
@@ -251,25 +259,25 @@ public class Jogo {
     public Peca[][] getTabuleiro() {
         return tabuleiro;
     }
-    
+
     public Jogador[] getJogadores() {
         return jogadores;
     }
-    
+
     public void setTabuleiro(Peca[][] tabuleiro) {
         this.tabuleiro = tabuleiro;
     }
-    
+
     public void setJogadores(Jogador[] jogadores) {
         this.jogadores = jogadores;
     }
-    
+
     public boolean isIa() {
         return ia;
     }
-    
+
     public void setIa(boolean ia) {
         this.ia = ia;
     }
-    
+
 }

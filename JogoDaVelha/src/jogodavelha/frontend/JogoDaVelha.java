@@ -8,6 +8,7 @@ package jogodavelha.frontend;
 public class JogoDaVelha {
 
     public static void main(String[] args) {
-        //new Inicio();
+        MainMenu m = new MainMenu();
+        m.setVisible(true);
     }
 }
