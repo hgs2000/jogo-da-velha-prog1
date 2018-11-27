@@ -201,7 +201,7 @@ public class Jogo {
             terminou = true;
             faceVitoriosa = Face.O;
         }
-        return (tabuleiro[0][0] == x && tabuleiro[1][1] == x && tabuleiro[2][2] == x);
+        return terminou;
     }
 
     /**
