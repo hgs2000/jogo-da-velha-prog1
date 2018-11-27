@@ -17,6 +17,8 @@ public class MainMenu extends JFrame {
 
     private Jogo jogo;
 
+    private boolean cpu = false;
+
     MainMenu() {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         add(menuPrincipal);
@@ -27,8 +29,7 @@ public class MainMenu extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 System.out.println("Botão apertado: VS Jogador");
                 //TODO adicionar mudança de tela onClick
-                SelecaoFace sf = new SelecaoFace();
-                sf.setVisible(true);
+                clicked();
             }
         });
         iniciarJogoVSComputadorButton.addActionListener(new ActionListener() {
@@ -36,8 +37,14 @@ public class MainMenu extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 System.out.println("Botão apertado: VS CPU");
                 //TODO adicionar mudança de tela onClick
-                dispose();
+                cpu = true;
+                clicked();
             }
         });
+    }
+
+    private void clicked() {
+        SelecaoFace sf = new SelecaoFace();
+        sf.setVisible(true);
     }
 }
