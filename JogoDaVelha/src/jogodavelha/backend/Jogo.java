@@ -241,7 +241,7 @@ public class Jogo {
         int linha = 0;
         int coluna = 0;
         Peca p = new Peca();
-        p.setFace(jogadores[2].getFaceEscolhida());
+        p.setFace(jogadores[1].getFaceEscolhida());
         if (!terminouJogo()) {
             do {
                 linha = rand.nextInt(2);

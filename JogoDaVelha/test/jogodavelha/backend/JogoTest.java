@@ -191,8 +191,11 @@ public class JogoTest {
     public void testFazJogadaIa() {
         System.out.println("fazJogadaIa");
         Jogo instance = new Jogo();
+        instance.setTabuleiro(tabuleiro);
+        instance.incluirJogador(jogador1);
+        instance.hasIa();
         instance.fazJogadaIa();
-        // TODO review the generated test code and remove the default call to fail.
+
     }
 
     /**
