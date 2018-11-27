@@ -21,11 +21,15 @@ public class JogoTest {
 
     private Peca x = new Peca(Face.X);
     private Peca o = new Peca(Face.O);
-    private Peca tabuleiro[][] = new Peca[][]{{x, null, x}, {o, o, o}, {null, x, x}};
+    private Peca tabuleiro[][] = new Peca[3][3];
     Jogador jogador1 = new Jogador("teste", Face.X);
     Jogador jogador2 = new Jogador("teste1", Face.O);
 
     public JogoTest() {
+        tabuleiro[0][0] = x;
+        tabuleiro[1][1] = x;
+        tabuleiro[2][2] = x;
+
     }
 
     @BeforeClass
@@ -101,6 +105,7 @@ public class JogoTest {
         int linha = 0;
         int coluna = 0;
         Jogo instance = new Jogo();
+        boolean expResult = true;
         instance.colocarPeca(peca, linha, coluna);
     }
 
@@ -126,7 +131,7 @@ public class JogoTest {
         System.out.println("terminouJogo -->");
         Jogo instance = new Jogo();
         instance.setTabuleiro(tabuleiro);
-        boolean expResult = true;
+        boolean expResult = false;
         boolean result = instance.terminouJogo();
         assertEquals(expResult, result);
     }
