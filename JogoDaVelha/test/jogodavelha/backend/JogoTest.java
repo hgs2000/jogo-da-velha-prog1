@@ -60,7 +60,7 @@ public class JogoTest {
     public void testFazJogada() {
         System.out.println("fazJogada -->");
         int linha = 1;
-        int coluna = 1;
+        int coluna = 2;
         Jogo instance = new Jogo();
         instance.setTabuleiro(tabuleiro);
         instance.incluirJogador(jogador1);
@@ -101,7 +101,7 @@ public class JogoTest {
     }
 
     /**
-     * Test of colocarPeca method, of class Jogo.
+     * Test of colocarPeca method, of class Jogo. ✓
      */
     @Test(expected = IllegalArgumentException.class)
     public void testColocarPeca() {
@@ -136,7 +136,7 @@ public class JogoTest {
         System.out.println("terminouJogo -->");
         Jogo instance = new Jogo();
         instance.setTabuleiro(tabuleiro);
-        boolean expResult = false;
+        boolean expResult = true;
         boolean result = instance.terminouJogo();
         assertEquals(expResult, result);
     }
@@ -191,8 +191,11 @@ public class JogoTest {
     public void testFazJogadaIa() {
         System.out.println("fazJogadaIa");
         Jogo instance = new Jogo();
+        instance.setTabuleiro(tabuleiro);
+        instance.incluirJogador(jogador1);
+        instance.hasIa();
         instance.fazJogadaIa();
-        // TODO review the generated test code and remove the default call to fail.
+
     }
 
     /**
