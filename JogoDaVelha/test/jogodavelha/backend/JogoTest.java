@@ -78,17 +78,18 @@ public class JogoTest {
 
     /**
      * Test of temPeca method, of class Jogo.
+     * 
      */
     @Test
     public void testTemPeca() {
-        System.out.println("temPeca");
+        System.out.println("temPeca --> \n");
         int linha = 0;
         int coluna = 0;
         Jogo instance = new Jogo();
-        boolean expResult = false;
+        instance.setTabuleiro(tabuleiro);
+        boolean expResult = true;
         boolean result = instance.temPeca(linha, coluna);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
     }
 
     /**
