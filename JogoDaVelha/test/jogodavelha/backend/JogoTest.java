@@ -27,9 +27,14 @@ public class JogoTest {
 
     public JogoTest() {
         tabuleiro[0][0] = x;
+        tabuleiro[0][1] = o;
+        tabuleiro[0][2] = null;
+        tabuleiro[1][0] = null;
         tabuleiro[1][1] = x;
+        tabuleiro[1][2] = null;
+        tabuleiro[2][0] = o;
+        tabuleiro[2][1] = null;
         tabuleiro[2][2] = x;
-
     }
 
     @BeforeClass
@@ -98,14 +103,13 @@ public class JogoTest {
     /**
      * Test of colocarPeca method, of class Jogo.
      */
-    @Test
+    @Test(expected = IllegalArgumentException.class)
     public void testColocarPeca() {
         System.out.println("colocarPeca");
-        Peca peca = null;
+        Peca peca = new Peca(Face.X);
         int linha = 0;
         int coluna = 0;
         Jogo instance = new Jogo();
-        boolean expResult = true;
         instance.colocarPeca(peca, linha, coluna);
     }
 
