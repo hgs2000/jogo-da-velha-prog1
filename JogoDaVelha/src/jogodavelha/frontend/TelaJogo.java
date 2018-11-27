@@ -1,4 +1,4 @@
 package jogodavelha.frontend;
 
-public class Jogo {
+public class TelaJogo {
 }

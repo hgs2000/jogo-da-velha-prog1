@@ -1,7 +1,6 @@
 package jogodavelha.backend;
 
 /**
- *
  * @author vicbona (Victor Bona) e hstarosky (Henrique Starosky)
  */
 public class Jogador {
@@ -18,7 +17,7 @@ public class Jogador {
     /**
      * Getter de nome
      *
-     * @return
+     * @return nome do Jogador
      */
     public String getNome() {
         return nome;
@@ -27,7 +26,7 @@ public class Jogador {
     /**
      * Setter de nome
      *
-     * @param nome
+     * @param nome o nome a ser definido
      */
     public void setNome(String nome) {
         this.nome = nome;
@@ -36,7 +35,7 @@ public class Jogador {
     /**
      * Getter de face
      *
-     * @return
+     * @return face do jogador
      */
     public Face getFaceEscolhida() {
         return faceEscolhida;
@@ -45,7 +44,7 @@ public class Jogador {
     /**
      * Setter de faceEscolhida
      *
-     * @param faceEscolhida
+     * @param faceEscolhida a face que o jogador usará
      */
     public void setFaceEscolhida(Face faceEscolhida) {
         this.faceEscolhida = faceEscolhida;

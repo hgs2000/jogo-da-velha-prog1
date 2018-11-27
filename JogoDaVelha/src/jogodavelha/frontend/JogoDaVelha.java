@@ -1,7 +1,7 @@
 package jogodavelha.frontend;
 
 /**
- * Classe principal do Jogo
+ * Classe principal do TelaJogo
  *
  * @author vicbona (Victor Bona) e hstarosky (Henrique Starosky)
  */
