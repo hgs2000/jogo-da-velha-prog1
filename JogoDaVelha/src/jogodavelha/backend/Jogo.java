@@ -5,9 +5,11 @@ import java.util.Random;
 /**
  * Classe principal do backend do jogo. Para o funcionamento do jogo apenas se
  * deve incluir os jogadores e definir se o adversario será ou não o computador,
- * -> algumas regras a serem relevadas: o jogadores de face X sempre começa jogando
- * -> o computador sempre seleciona a face contraria ao jogador humano
- * -> as condições de vitoria são as mesmas do jogo da velha tradicional e são verificadas a cada jogada
+ * -> algumas regras a serem relevadas: o jogadores de face X sempre começa
+ * jogando -> o computador sempre seleciona a face contraria ao jogador humano
+ * -> as condições de vitoria são as mesmas do jogo da velha tradicional e são
+ * verificadas a cada jogada -> o jogador humano sempre deve ser inserido antes
+ * da IA ser chamada
  *
  * @author vicbona (Victor Bona) & hstarosky (Henrique Starosky)
  */
@@ -22,20 +24,21 @@ public class Jogo {
      *
      */
     public Jogo() {
+
     }
 
     /**
-     * Método que faz a jogada dos jogadores de acordo com a vez, o metodo verifica sempre se o jogo acabou
-     * retornando true caso o jogo tenha terminado
+     * Método que faz a jogada dos jogadores de acordo com a vez, o metodo
+     * verifica sempre se o jogo acabou retornando true caso o jogo tenha
+     * terminado
      *
-     * @param linha  A linha escolhida pra jogada.
+     * @param linha A linha escolhida pra jogada.
      * @param coluna A coluna escolhida pra jogada
      * @return boolean para saber se a jogada foi executada com sucesso.
      */
     public boolean fazJogada(int linha, int coluna) {
         Jogador daVez = identificaQuemJoga();
-        Peca pecaDaVez = new Peca();
-        pecaDaVez.setFace(daVez.getFaceEscolhida());
+        Peca pecaDaVez = new Peca(daVez.getFaceEscolhida());
         if (ia) {
             if (daVez.getNome().equals("Computador")) {
                 fazJogadaIa();
@@ -52,7 +55,7 @@ public class Jogo {
         if (jogador.getFaceEscolhida() == Face.X) {
             jogador.setQuemJoga(true);
         }
-        if (jogadores[0] != null) {
+        if (jogadores[0] == null) {
             jogadores[0] = jogador;
         } else {
             jogadores[1] = jogador;
@@ -63,7 +66,7 @@ public class Jogo {
      * O método temPeca() avalia se há uma peça no tabuleiro, conforme
      * coordenadas do tabuleiro informadas.
      *
-     * @param linha  linha destino
+     * @param linha linha destino
      * @param coluna coluna destino
      * @return
      */
@@ -78,7 +81,7 @@ public class Jogo {
      *
      * @param peca
      * @param linha
-     * @param coluna
+     * @param coluna x
      */
     public void colocarPeca(Peca peca, int linha, int coluna) {
         if (temPeca(linha, coluna)) {
@@ -95,9 +98,8 @@ public class Jogo {
      * @return
      */
     public Jogador obterVencedor() {
-        Jogador vencedor = (jogadores[0].getFaceEscolhida() == faceVitoriosa)
+        return (jogadores[0].getFaceEscolhida() == faceVitoriosa)
                 ? jogadores[0] : jogadores[1];
-        return vencedor;
     }
 
     /**
@@ -218,14 +220,6 @@ public class Jogo {
     }
 
     /**
-     * Retorna a face que venceu a partida
-     * @return face vencedora
-     */
-    public Face getFaceVitoriosa() {
-        return faceVitoriosa;
-    }
-
-    /**
      * o método hasIa tem como finalidade definir as configurações para que o
      * jogo opere no modo jogador vs maquina habilitando a IA do jogo e
      * definindo seus parametros
@@ -278,6 +272,19 @@ public class Jogo {
 
     public void setIa(boolean ia) {
         this.ia = ia;
+    }
+
+    /**
+     * Retorna a face que venceu a partida
+     *
+     * @return face vencedora
+     */
+    public Face getFaceVitoriosa() {
+        return faceVitoriosa;
+    }
+
+    public void setFaceVitoriosa(Face faceVitoriosa) {
+        this.faceVitoriosa = faceVitoriosa;
     }
 
 }
