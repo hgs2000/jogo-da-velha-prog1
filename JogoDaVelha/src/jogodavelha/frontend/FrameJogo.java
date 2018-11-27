@@ -15,6 +15,7 @@ public class FrameJogo extends javax.swing.JFrame {
 
     public FrameJogo(Jogador[] jogadores, boolean hasIa) {
         initComponents();
+        this.setLocationRelativeTo(null);
         this.jogadores = jogadores;
         jogo = new Jogo();
         this.hasIa = hasIa;

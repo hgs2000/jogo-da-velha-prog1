@@ -11,7 +11,7 @@ import jogodavelha.backend.Jogador;
 
 /**
  *
- * @author victo
+ * @author vicbona (Victor Bona) & hstarosky (Henrique Starosky)
  */
 public class EscolhaPlayers extends javax.swing.JDialog {
 
@@ -22,6 +22,7 @@ public class EscolhaPlayers extends javax.swing.JDialog {
     public EscolhaPlayers(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     @SuppressWarnings("unchecked")
@@ -127,25 +128,28 @@ public class EscolhaPlayers extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     /**
-     * 
-     * @param evt 
+     *
+     * @param evt
      */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
         if (faceP1.getSelectedItem() == faceP2.getSelectedItem()) {
             msgErro("As faces escolhidas pelos jogadores deve ser diferente");
+        } else if (nomeP1.getText().isEmpty() || nomeP2.getText().isEmpty()) {
+            msgErro("Os nomes dos jogadores não podem ser vazios");
         } else {
             p1 = new Jogador(nomeP1.getText(), (faceP1.getSelectedItem() == "X") ? Face.X : Face.O);
             p2 = new Jogador(nomeP2.getText(), (faceP2.getSelectedItem() == "X") ? Face.X : Face.O);
             jogadores[0] = p1;
             jogadores[1] = p2;
+            this.setVisible(false);
         }
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
-     * 
-     * @param mensagem 
+     *
+     * @param mensagem
      */
     public void msgErro(String mensagem) {
         JOptionPane.showMessageDialog(null, mensagem,
@@ -160,7 +164,6 @@ public class EscolhaPlayers extends javax.swing.JDialog {
         this.jogadores = jogadores;
     }
 
-    
     /**
      * @param args the command line arguments
      */
