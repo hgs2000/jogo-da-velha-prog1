@@ -105,11 +105,12 @@ public class JogoTest {
      */
     @Test(expected = IllegalArgumentException.class)
     public void testColocarPeca() {
-        System.out.println("colocarPeca");
-        Peca peca = new Peca(Face.X);
+        System.out.println("colocarPeca -->");
+        Peca peca = new Peca(Face.O);
         int linha = 0;
         int coluna = 0;
         Jogo instance = new Jogo();
+        instance.setTabuleiro(tabuleiro);
         instance.colocarPeca(peca, linha, coluna);
     }
 

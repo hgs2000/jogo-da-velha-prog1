@@ -83,7 +83,7 @@ public class Jogo {
      * @param linha
      * @param coluna x
      */
-    public void colocarPeca(Peca peca, int linha, int coluna) throws IllegalArgumentException {
+    public void colocarPeca(Peca peca, int linha, int coluna) {
         if (temPeca(linha, coluna)) {
             throw new IllegalArgumentException("Posição do tabuleiro ja ocupada por uma peça");
         } else {
