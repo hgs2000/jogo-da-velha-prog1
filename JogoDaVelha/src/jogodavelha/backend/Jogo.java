@@ -81,12 +81,11 @@ public class Jogo {
      *
      * @param peca
      * @param linha
-     * @param coluna
-     * x
+     * @param coluna x
      */
     public void colocarPeca(Peca peca, int linha, int coluna) throws IllegalArgumentException {
         if (temPeca(linha, coluna)) {
-           throw new IllegalArgumentException("Posição do tabuleiro ja ocupada por uma peça");
+            throw new IllegalArgumentException("Posição do tabuleiro ja ocupada por uma peça");
         } else {
             tabuleiro[linha][coluna] = peca;
         }
@@ -221,15 +220,6 @@ public class Jogo {
     }
 
     /**
-     * Retorna a face que venceu a partida
-     *
-     * @return face vencedora
-     */
-    public Face getFaceVitoriosa() {
-        return faceVitoriosa;
-    }
-
-    /**
      * o método hasIa tem como finalidade definir as configurações para que o
      * jogo opere no modo jogador vs maquina habilitando a IA do jogo e
      * definindo seus parametros
@@ -282,6 +272,19 @@ public class Jogo {
 
     public void setIa(boolean ia) {
         this.ia = ia;
+    }
+
+    /**
+     * Retorna a face que venceu a partida
+     *
+     * @return face vencedora
+     */
+    public Face getFaceVitoriosa() {
+        return faceVitoriosa;
+    }
+
+    public void setFaceVitoriosa(Face faceVitoriosa) {
+        this.faceVitoriosa = faceVitoriosa;
     }
 
 }

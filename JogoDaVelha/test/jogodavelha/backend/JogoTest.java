@@ -15,13 +15,13 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author vicbona
+ * @author vicbona (Victor Bona) & hstarosky (Henrique Starosky)
  */
 public class JogoTest {
 
     private Peca x = new Peca(Face.X);
     private Peca o = new Peca(Face.O);
-    private Peca tabuleiro[][] = new Peca[][]{{x, x, x}, {x, null, x}, {x, x, x}};
+    private Peca tabuleiro[][] = new Peca[][]{{x, null, x}, {o, o, o}, {null, x, x}};
     Jogador jogador1 = new Jogador("teste", Face.X);
     Jogador jogador2 = new Jogador("teste1", Face.O);
 
@@ -77,8 +77,7 @@ public class JogoTest {
     }
 
     /**
-     * Test of temPeca method, of class Jogo.
-     * 
+     * Test of temPeca method, of class Jogo. ✓
      */
     @Test
     public void testTemPeca() {
@@ -103,20 +102,20 @@ public class JogoTest {
         int coluna = 0;
         Jogo instance = new Jogo();
         instance.colocarPeca(peca, linha, coluna);
-        // TODO review the generated test code and remove the default call to fail.
     }
 
     /**
-     * Test of obterVencedor method, of class Jogo.
+     * Test of obterVencedor method, of class Jogo. ✓
      */
     @Test
     public void testObterVencedor() {
         System.out.println("obterVencedor");
         Jogo instance = new Jogo();
-        Jogador expResult = null;
-        Jogador result = instance.obterVencedor();
+        instance.setFaceVitoriosa(Face.X);
+        instance.incluirJogador(jogador1);
+        Face expResult = Face.X;
+        Face result = instance.obterVencedor().getFaceEscolhida();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
     }
 
     /**
@@ -133,13 +132,15 @@ public class JogoTest {
     }
 
     /**
-     * Test of identificaQuemJoga method, of class Jogo.
+     * Test of identificaQuemJoga method, of class Jogo. ✓
      */
     @Test
     public void testIdentificaQuemJoga() {
-        System.out.println("identificaQuemJoga");
+        System.out.println("identificaQuemJoga -->");
         Jogo instance = new Jogo();
-        Jogador expResult = null;
+        Jogador expResult = jogador1;
+        instance.incluirJogador(jogador1);
+        instance.incluirJogador(jogador2);
         Jogador result = instance.identificaQuemJoga();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
@@ -150,7 +151,7 @@ public class JogoTest {
      */
     @Test
     public void testGetFaceVitoriosa() {
-        System.out.println("getFaceVitoriosa");
+        System.out.println("getFaceVitoriosa -->");
         Jogo instance = new Jogo();
         Face expResult = null;
         Face result = instance.getFaceVitoriosa();
@@ -163,7 +164,7 @@ public class JogoTest {
      */
     @Test
     public void testHasIa() {
-        System.out.println("hasIa --->");
+        System.out.println("hasIa -->");
         Jogo instance = new Jogo();
         Jogador jogadorHumano = new Jogador("teste", Face.X);
         instance.incluirJogador(jogadorHumano);
@@ -185,26 +186,29 @@ public class JogoTest {
     }
 
     /**
-     * Test of getTabuleiro method, of class Jogo.
+     * Test of getTabuleiro method, of class Jogo. ✓
      */
     @Test
     public void testGetTabuleiro() {
         System.out.println("getTabuleiro");
         Jogo instance = new Jogo();
-        Peca[][] expResult = null;
+        instance.setTabuleiro(tabuleiro);
+        Peca[][] expResult = tabuleiro;
         Peca[][] result = instance.getTabuleiro();
         assertArrayEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
     }
 
     /**
-     * Test of getJogadores method, of class Jogo.
+     * Test of getJogadores method, of class Jogo. ✓
      */
     @Test
     public void testGetJogadores() {
         System.out.println("getJogadores");
         Jogo instance = new Jogo();
-        Jogador[] expResult = null;
+        instance.incluirJogador(jogador1);
+        instance.incluirJogador(jogador2);
+        Jogador[] expResult = {jogador1, jogador2};
         Jogador[] result = instance.getJogadores();
         assertArrayEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
@@ -235,24 +239,30 @@ public class JogoTest {
     }
 
     /**
-     * Test of isIa method, of class Jogo.
+     * Test of isIa method, of class Jogo. ✓
      */
     @Test
     public void testIsIa() {
-        System.out.println("isIa");
-
+        System.out.println("isIa -->");
+        Jogo instance = new Jogo();
+        instance.incluirJogador(jogador1);
+        instance.hasIa();
+        boolean expResult = true;
+        assertEquals(expResult, instance.isIa());
         // TODO review the generated test code and remove the default call to fail.
     }
 
     /**
-     * Test of setIa method, of class Jogo.
+     * Test of setIa method, of class Jogo. ✓
      */
     @Test
     public void testSetIa() {
-        System.out.println("setIa");
-        boolean ia = false;
+        System.out.println("setIa -->");
+        boolean ia = true;
         Jogo instance = new Jogo();
         instance.setIa(ia);
+        boolean expResult = true;
+        assertEquals(expResult, instance.isIa());
         // TODO review the generated test code and remove the default call to fail.
     }
 
