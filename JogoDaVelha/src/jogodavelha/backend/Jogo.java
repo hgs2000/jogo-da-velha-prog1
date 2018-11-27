@@ -43,10 +43,18 @@ public class Jogo {
             if (daVez.getNome().equals("Computador")) {
                 fazJogadaIa();
             } else {
-                colocarPeca(pecaDaVez, linha, coluna);
+                try {
+                    colocarPeca(pecaDaVez, linha, coluna);
+                } catch (IllegalArgumentException e) {
+                    throw new IllegalArgumentException("Posição do tabuleiro ja ocupada por uma peça");
+                }
             }
         } else {
-            colocarPeca(pecaDaVez, linha, coluna);
+            try {
+                colocarPeca(pecaDaVez, linha, coluna);
+            } catch (IllegalArgumentException e) {
+                throw new IllegalArgumentException("Posição do tabuleiro ja ocupada por uma peça");
+            }
         }
         return terminouJogo();
     }
@@ -130,10 +138,8 @@ public class Jogo {
         }
 
         //condições de vitoria
-        Peca x = new Peca();
-        x.setFace(Face.X);
-        Peca o = new Peca();
-        x.setFace(Face.O);
+        Peca x = new Peca(Face.X);
+        Peca o = new Peca(Face.O);
         // condições horizontais
         if (tabuleiro[0][0] == x && tabuleiro[0][1] == x && tabuleiro[0][2] == x) {
             terminou = true;
@@ -195,7 +201,7 @@ public class Jogo {
             terminou = true;
             faceVitoriosa = Face.O;
         }
-        return terminou;
+        return (tabuleiro[0][0] == x && tabuleiro[1][1] == x && tabuleiro[2][2] == x);
     }
 
     /**
