@@ -24,7 +24,6 @@ public class Jogo {
      *
      */
     public Jogo() {
-
     }
 
     /**
