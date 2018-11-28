@@ -39,7 +39,7 @@ public class EscolhaPlayers extends javax.swing.JDialog {
         jLabel5 = new javax.swing.JLabel();
         faceP2 = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        confirmar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -59,10 +59,10 @@ public class EscolhaPlayers extends javax.swing.JDialog {
 
         jLabel6.setText("PLAYER 2");
 
-        jButton1.setText("CONFIRMAR");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        confirmar.setText("CONFIRMAR");
+        confirmar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                confirmarActionPerformed(evt);
             }
         });
 
@@ -93,7 +93,7 @@ public class EscolhaPlayers extends javax.swing.JDialog {
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(confirmar)
                 .addGap(202, 202, 202))
         );
         layout.setVerticalGroup(
@@ -120,7 +120,7 @@ public class EscolhaPlayers extends javax.swing.JDialog {
                 .addGap(10, 10, 10)
                 .addComponent(faceP2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
+                .addComponent(confirmar)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -131,7 +131,7 @@ public class EscolhaPlayers extends javax.swing.JDialog {
      *
      * @param evt
      */
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void confirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmarActionPerformed
 
         if (faceP1.getSelectedItem() == faceP2.getSelectedItem()) {
             msgErro("As faces escolhidas pelos jogadores deve ser diferente");
@@ -145,11 +145,11 @@ public class EscolhaPlayers extends javax.swing.JDialog {
             this.setVisible(false);
         }
 
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_confirmarActionPerformed
 
     /**
-     *
-     * @param mensagem
+     * Mensagem de erro
+     * @param mensagem 
      */
     public void msgErro(String mensagem) {
         JOptionPane.showMessageDialog(null, mensagem,
@@ -207,9 +207,9 @@ public class EscolhaPlayers extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton confirmar;
     private javax.swing.JComboBox<String> faceP1;
     private javax.swing.JComboBox<String> faceP2;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
