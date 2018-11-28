@@ -19,6 +19,7 @@ public class Jogo {
     private Jogador jogadores[] = new Jogador[2];
     private boolean ia = false;
     private Face faceVitoriosa;
+    private int posicaoIa[][] = new int[1][2];
 
     /**
      *
@@ -35,25 +36,17 @@ public class Jogo {
      * @param coluna A coluna escolhida pra jogada
      * @return boolean para saber se a jogada foi executada com sucesso.
      */
-    public boolean fazJogada(int linha, int coluna) {
-        Jogador daVez = identificaQuemJoga();
+    public boolean fazJogada(int linha, int coluna, Jogador daVezPr) {
+        Jogador daVez = daVezPr;
         Peca pecaDaVez = new Peca(daVez.getFaceEscolhida());
         if (ia) {
             if (daVez.getNome().equals("Computador")) {
                 fazJogadaIa();
             } else {
-                try {
-                    colocarPeca(pecaDaVez, linha, coluna);
-                } catch (IllegalArgumentException e) {
-                    throw new IllegalArgumentException("Posição do tabuleiro ja ocupada por uma peça");
-                }
+                colocarPeca(pecaDaVez, linha, coluna);
             }
         } else {
-            try {
-                colocarPeca(pecaDaVez, linha, coluna);
-            } catch (IllegalArgumentException e) {
-                throw new IllegalArgumentException("Posição do tabuleiro ja ocupada por uma peça");
-            }
+            colocarPeca(pecaDaVez, linha, coluna);
         }
         return terminouJogo();
     }
@@ -124,6 +117,88 @@ public class Jogo {
         boolean terminou = false;
         int contador = 0;
 
+        //condições de vitoria
+        Peca x = new Peca(Face.X);
+        Peca o = new Peca(Face.O);
+
+        // condições horizontais
+        if (tabuleiro[0][0] != null & tabuleiro[0][1] != null & tabuleiro[0][2] != null) {
+            if (tabuleiro[0][0].getFace() == x.getFace() && tabuleiro[0][1].getFace() == x.getFace() && tabuleiro[0][2].getFace() == x.getFace()) {
+                terminou = true;
+                faceVitoriosa = Face.X;
+            } else if (tabuleiro[0][0].getFace() == o.getFace() && tabuleiro[0][1].getFace() == o.getFace() && tabuleiro[0][2].getFace() == o.getFace()) {
+                terminou = true;
+                faceVitoriosa = Face.O;
+            }
+        }
+        if (tabuleiro[1][0] != null & tabuleiro[1][1] != null & tabuleiro[1][2] != null) {
+            if (tabuleiro[1][0].getFace() == x.getFace() && tabuleiro[1][1].getFace() == x.getFace() && tabuleiro[1][2].getFace() == x.getFace()) {
+                terminou = true;
+                faceVitoriosa = Face.X;
+            } else if (tabuleiro[1][0].getFace() == o.getFace() && tabuleiro[1][1].getFace() == o.getFace() && tabuleiro[1][2].getFace() == o.getFace()) {
+                terminou = true;
+                faceVitoriosa = Face.O;
+            }
+        }
+        if (tabuleiro[2][0] != null & tabuleiro[2][1] != null & tabuleiro[2][2] != null) {
+            if (tabuleiro[2][0].getFace() == x.getFace() && tabuleiro[2][1].getFace() == x.getFace() && tabuleiro[2][2].getFace() == x.getFace()) {
+                terminou = true;
+                faceVitoriosa = Face.X;
+            } else if (tabuleiro[2][0].getFace() == o.getFace() && tabuleiro[2][1].getFace() == o.getFace() && tabuleiro[2][2].getFace() == o.getFace()) {
+                terminou = true;
+                faceVitoriosa = Face.O;
+            }
+        }
+
+        //condições verticais
+        if (tabuleiro[0][0] != null & tabuleiro[1][0] != null & tabuleiro[2][0] != null) {
+            if (tabuleiro[0][0].getFace() == x.getFace() && tabuleiro[1][0].getFace() == x.getFace() && tabuleiro[2][0].getFace() == x.getFace()) {
+                terminou = true;
+                faceVitoriosa = Face.X;
+            } else if (tabuleiro[0][0].getFace() == o.getFace() && tabuleiro[1][0].getFace() == o.getFace() && tabuleiro[2][0].getFace() == o.getFace()) {
+                terminou = true;
+                faceVitoriosa = Face.O;
+            }
+        }
+        if (tabuleiro[0][1] != null & tabuleiro[1][1] != null & tabuleiro[2][1] != null) {
+            if (tabuleiro[0][1].getFace() == x.getFace() && tabuleiro[1][1].getFace() == x.getFace() && tabuleiro[2][1].getFace() == x.getFace()) {
+                terminou = true;
+                faceVitoriosa = Face.X;
+            } else if (tabuleiro[0][1].getFace() == o.getFace() && tabuleiro[1][1].getFace() == o.getFace() && tabuleiro[2][1].getFace() == o.getFace()) {
+                terminou = true;
+                faceVitoriosa = Face.O;
+            }
+        }
+        if (tabuleiro[0][1] != null & tabuleiro[1][2] != null & tabuleiro[2][2] != null) {
+            if (tabuleiro[0][1].getFace() == x.getFace() && tabuleiro[1][2].getFace() == x.getFace() && tabuleiro[2][2].getFace() == x.getFace()) {
+                terminou = true;
+                faceVitoriosa = Face.X;
+            } else if (tabuleiro[0][2].getFace() == o.getFace() && tabuleiro[1][2].getFace() == o.getFace() && tabuleiro[2][2].getFace() == o.getFace()) {
+                terminou = true;
+                faceVitoriosa = Face.O;
+            }
+        }
+
+        //condições diagonais
+        if (tabuleiro[0][0] != null & tabuleiro[1][1] != null & tabuleiro[2][2] != null) {
+            if (tabuleiro[0][0].getFace() == x.getFace() && tabuleiro[1][1].getFace() == x.getFace() && tabuleiro[2][2].getFace() == x.getFace()) {
+                terminou = true;
+                faceVitoriosa = Face.X;
+            } else if (tabuleiro[0][0].getFace() == o.getFace() && tabuleiro[1][1].getFace() == o.getFace() && tabuleiro[2][2].getFace() == o.getFace()) {
+                terminou = true;
+                faceVitoriosa = Face.O;
+            }
+        }
+        if (tabuleiro[0][2] != null & tabuleiro[1][1] != null & tabuleiro[2][0] != null) {
+            if (tabuleiro[0][2].getFace() == x.getFace() && tabuleiro[1][1].getFace() == x.getFace() && tabuleiro[2][0].getFace() == x.getFace()) {
+                terminou = true;
+                faceVitoriosa = Face.X;
+            } else if (tabuleiro[0][2].getFace() == o.getFace() && tabuleiro[1][1].getFace() == o.getFace() && tabuleiro[2][0].getFace() == o.getFace()) {
+                terminou = true;
+                faceVitoriosa = Face.O;
+            }
+        }
+
         for (Peca[] peca : tabuleiro) {
             for (Peca p : peca) {
                 if (p != null) {
@@ -136,70 +211,6 @@ public class Jogo {
             terminou = true;
         }
 
-        //condições de vitoria
-        Peca x = new Peca(Face.X);
-        Peca o = new Peca(Face.O);
-        // condições horizontais
-        if (tabuleiro[0][0] == x && tabuleiro[0][1] == x && tabuleiro[0][2] == x) {
-            terminou = true;
-            faceVitoriosa = Face.X;
-        } else if (tabuleiro[0][0] == o && tabuleiro[0][1] == o && tabuleiro[0][2] == o) {
-            terminou = true;
-            faceVitoriosa = Face.O;
-        }
-        if (tabuleiro[1][0] == x && tabuleiro[1][1] == x && tabuleiro[1][2] == x) {
-            terminou = true;
-            faceVitoriosa = Face.X;
-        } else if (tabuleiro[1][0] == o && tabuleiro[1][1] == o && tabuleiro[1][2] == o) {
-            terminou = true;
-            faceVitoriosa = Face.O;
-        }
-        if (tabuleiro[2][0] == x && tabuleiro[2][1] == x && tabuleiro[2][2] == x) {
-            terminou = true;
-            faceVitoriosa = Face.X;
-        } else if (tabuleiro[2][0] == o && tabuleiro[2][1] == o && tabuleiro[2][2] == o) {
-            terminou = true;
-            faceVitoriosa = Face.O;
-        }
-
-        //condições verticais
-        if (tabuleiro[0][0] == x && tabuleiro[1][0] == x && tabuleiro[2][0] == x) {
-            terminou = true;
-            faceVitoriosa = Face.X;
-        } else if (tabuleiro[0][0] == o && tabuleiro[1][0] == o && tabuleiro[2][0] == o) {
-            terminou = true;
-            faceVitoriosa = Face.O;
-        }
-        if (tabuleiro[0][1] == x && tabuleiro[1][1] == x && tabuleiro[2][1] == x) {
-            terminou = true;
-            faceVitoriosa = Face.X;
-        } else if (tabuleiro[0][1] == o && tabuleiro[1][1] == o && tabuleiro[2][1] == o) {
-            terminou = true;
-            faceVitoriosa = Face.O;
-        }
-        if (tabuleiro[0][2] == x && tabuleiro[1][2] == x && tabuleiro[2][2] == x) {
-            terminou = true;
-            faceVitoriosa = Face.X;
-        } else if (tabuleiro[0][2] == o && tabuleiro[1][2] == o && tabuleiro[2][2] == o) {
-            terminou = true;
-            faceVitoriosa = Face.O;
-        }
-
-        //condições diagonais
-        if (tabuleiro[0][0] == x && tabuleiro[1][1] == x && tabuleiro[2][2] == x) {
-            terminou = true;
-            faceVitoriosa = Face.X;
-        } else if (tabuleiro[0][0] == o && tabuleiro[1][1] == o && tabuleiro[2][2] == o) {
-            terminou = true;
-            faceVitoriosa = Face.O;
-        }
-        if (tabuleiro[0][2] == x && tabuleiro[1][1] == x && tabuleiro[2][0] == x) {
-            terminou = true;
-            faceVitoriosa = Face.X;
-        } else if (tabuleiro[0][2] == o && tabuleiro[1][1] == o && tabuleiro[2][0] == o) {
-            terminou = true;
-            faceVitoriosa = Face.O;
-        }
         return terminou;
     }
 
@@ -237,17 +248,13 @@ public class Jogo {
 
     public void fazJogadaIa() {
         Random rand = new Random();
-        int linha = 0;
-        int coluna = 0;
         Peca p = new Peca();
         p.setFace(jogadores[1].getFaceEscolhida());
-        if (!terminouJogo()) {
-            do {
-                linha = rand.nextInt(2);
-                coluna = rand.nextInt(2);
-            } while (temPeca(linha, coluna));
-        }
-        colocarPeca(p, linha, coluna);
+        do {
+             posicaoIa[0][0] = rand.nextInt((2 - 0) + 1) + 0;
+            posicaoIa[0][1] = rand.nextInt((2 - 0) + 1) + 0;
+        } while (temPeca( posicaoIa[0][0], posicaoIa[0][1]));
+        colocarPeca(p,  posicaoIa[0][0], posicaoIa[0][1]);
     }
 
     /**
@@ -277,6 +284,14 @@ public class Jogo {
 
     public void setIa(boolean ia) {
         this.ia = ia;
+    }
+
+    public int[][] getPosicaoIa() {
+        return posicaoIa;
+    }
+
+    public void setPosicaoIa(int[][] posicaoIa) {
+        this.posicaoIa = posicaoIa;
     }
 
     /**

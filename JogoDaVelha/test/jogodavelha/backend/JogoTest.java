@@ -27,7 +27,7 @@ public class JogoTest {
 
     public JogoTest() {
         tabuleiro[0][0] = x;
-        tabuleiro[0][1] = o;
+        tabuleiro[0][1] = x;
         tabuleiro[0][2] = null;
         tabuleiro[1][0] = null;
         tabuleiro[1][1] = x;
@@ -65,8 +65,9 @@ public class JogoTest {
         instance.setTabuleiro(tabuleiro);
         instance.incluirJogador(jogador1);
         instance.incluirJogador(jogador2);
-        boolean expResult = false;
-        boolean result = instance.fazJogada(linha, coluna);
+        Jogador daVez = instance.identificaQuemJoga();
+        boolean expResult = true;
+        boolean result = instance.fazJogada(linha, coluna, daVez);
         assertEquals(expResult, result);
     }
 
@@ -194,7 +195,6 @@ public class JogoTest {
         instance.incluirJogador(jogador1);
         instance.hasIa();
         instance.fazJogadaIa();
-
     }
 
     /**
