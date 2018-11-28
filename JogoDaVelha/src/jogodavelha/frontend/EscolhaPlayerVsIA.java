@@ -11,10 +11,12 @@ import jogodavelha.backend.Jogador;
 public class EscolhaPlayerVsIA extends javax.swing.JDialog {
 
     private Jogador p1;
+    private Jogador jogadores[] = new Jogador[2];
 
     public EscolhaPlayerVsIA(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     @SuppressWarnings("unchecked")
@@ -93,18 +95,28 @@ public class EscolhaPlayerVsIA extends javax.swing.JDialog {
             msgErro("O nome do jogador não pode ser vazio");
         } else {
             p1 = new Jogador(nomeP1.getText(), (faceP1.getSelectedItem() == "X") ? Face.X : Face.O);
+            jogadores[0] = p1;
             this.setVisible(false);
         }
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
+     * Mensagem de erro
      *
      * @param mensagem
      */
     public void msgErro(String mensagem) {
         JOptionPane.showMessageDialog(null, mensagem,
                 "Erro", JOptionPane.ERROR_MESSAGE);
+    }
+
+    public Jogador[] getJogadores() {
+        return jogadores;
+    }
+
+    public void setJogadores(Jogador[] jogadores) {
+        this.jogadores = jogadores;
     }
 
     public Jogador getP1() {
