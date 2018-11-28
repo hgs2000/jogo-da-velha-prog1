@@ -153,7 +153,6 @@ public class JogoTest {
         instance.incluirJogador(jogador2);
         Jogador result = instance.identificaQuemJoga();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
     }
 
     /**
